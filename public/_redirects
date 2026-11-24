@@ -1,0 +1,15 @@
+# Rutas de la aplicación: viven en Vercel.
+/login         https://fidelizacion01.vercel.app/login           302
+/app           https://fidelizacion01.vercel.app/                302
+/auth/*        https://fidelizacion01.vercel.app/auth/:splat     302
+/admin         https://fidelizacion01.vercel.app/admin           302
+/admin/*       https://fidelizacion01.vercel.app/admin/:splat    302
+/customer      https://fidelizacion01.vercel.app/customer        302
+/customer/*    https://fidelizacion01.vercel.app/customer/:splat 302
+/encargado     https://fidelizacion01.vercel.app/encargado       302
+/encargado/*   https://fidelizacion01.vercel.app/encargado/:splat 302
+/business/*    https://fidelizacion01.vercel.app/business/:splat 302
+/perfil        https://fidelizacion01.vercel.app/perfil          302
+/join/*        https://fidelizacion01.vercel.app/join/:splat     302
+/claim/*       https://fidelizacion01.vercel.app/claim/:splat    302
+/scan/*        https://fidelizacion01.vercel.app/scan/:splat     302
