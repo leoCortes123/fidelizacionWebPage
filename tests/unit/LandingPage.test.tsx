@@ -9,7 +9,12 @@ import { HowItWorksPage } from "@/features/landing/pages/HowItWorksPage";
 import { FeaturesPage } from "@/features/landing/pages/FeaturesPage";
 import { PricingPage } from "@/features/landing/pages/PricingPage";
 import { FaqPage } from "@/features/landing/pages/FaqPage";
-import { LOGIN_URL, REGISTER_BUSINESS_URL, REGISTER_CUSTOMER_URL, INSTALL_APP_URL } from "@/lib/config";
+import {
+  LOGIN_URL,
+  REGISTER_BUSINESS_URL,
+  REGISTER_CUSTOMER_URL,
+  INSTALL_APP_URL,
+} from "@/lib/config";
 import { faqs, manualSteps, roleShowcases } from "@/features/landing/webContent";
 
 describe("Sitio público (mockup multipágina)", () => {

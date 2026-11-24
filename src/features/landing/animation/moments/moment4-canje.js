@@ -128,11 +128,7 @@ export function renderMoment4HTML() {
   `;
 }
 
-export function createMoment4Timeline(
-  rootEl,
-  gsapInstance = window.gsap,
-  timelineOptions = {}
-) {
+export function createMoment4Timeline(rootEl, gsapInstance = window.gsap, timelineOptions = {}) {
   const readingPause =
     typeof timelineOptions.scenePause === "number"
       ? Math.max(0.1, timelineOptions.scenePause)
@@ -173,22 +169,18 @@ export function createMoment4Timeline(
   tl.set(handStaff, { autoAlpha: 0, x: 48, y: 48 });
   tl.set([coin1, coin2, coin3], { autoAlpha: 0, x: 0, y: -40, scale: 0.9 });
 
-  tl.call(() => {
-    if (pointsVal) pointsVal.textContent = "2.000 MONEDAS";
-    if (winTitle) winTitle.textContent = "PLAYER CARD · CANJE";
-  }, null, 0);
+  tl.call(
+    () => {
+      if (pointsVal) pointsVal.textContent = "2.000 MONEDAS";
+      if (winTitle) winTitle.textContent = "PLAYER CARD · CANJE";
+    },
+    null,
+    0,
+  );
 
   // 1. Entrada del texto pixelado y el dedo del cliente presionando CANJEAR (0.00s -> 0.45s)
-  tl.to(
-    caption,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" },
-    0.02
-  );
-  tl.to(
-    handCustomer,
-    { autoAlpha: 1, x: 0, y: 0, duration: 0.24, ease: "steps(4)" },
-    0.05
-  );
+  tl.to(caption, { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" }, 0.02);
+  tl.to(handCustomer, { autoAlpha: 1, x: 0, y: 0, duration: 0.24, ease: "steps(4)" }, 0.05);
   tl.to(handCustomer, { y: 4, duration: 0.07, ease: "steps(1)" }, 0.32);
   tl.to(
     btnRedeem,
@@ -199,7 +191,7 @@ export function createMoment4Timeline(
       duration: 0.07,
       ease: "steps(1)",
     },
-    0.32
+    0.32,
   );
   tl.to(
     btnRedeem,
@@ -210,51 +202,35 @@ export function createMoment4Timeline(
       duration: 0.06,
       ease: "steps(1)",
     },
-    0.41
+    0.41,
   );
 
   // Pausa breve tras pulsar CANJEAR (0.5 s: 0.45s -> 0.95s)
-  tl.to(
-    handCustomer,
-    { autoAlpha: 0, y: 36, duration: 0.16, ease: "steps(3)" },
-    0.82
-  );
+  tl.to(handCustomer, { autoAlpha: 0, y: 36, duration: 0.16, ease: "steps(3)" }, 0.82);
 
   // 2. Las monedas requeridas salen del contador con animación de gasto y aparece el QR/ticket de canje (0.95s -> 1.55s)
   tl.set(spendTag, { autoAlpha: 1, y: 6 }, 0.95);
   tl.to(spendTag, { y: -10, duration: 0.3, ease: "steps(3)" }, 0.96);
   tl.set([coin1, coin2, coin3], { autoAlpha: 1, y: -38 }, 0.96);
-  tl.to(
-    coin1,
-    { x: -85, y: -125, scale: 0.65, duration: 0.36, ease: "steps(4)" },
-    0.96
-  );
-  tl.to(
-    coin2,
-    { x: 0, y: -140, scale: 0.65, duration: 0.36, ease: "steps(4)" },
-    1.02
-  );
-  tl.to(
-    coin3,
-    { x: 85, y: -125, scale: 0.65, duration: 0.36, ease: "steps(4)" },
-    1.08
-  );
+  tl.to(coin1, { x: -85, y: -125, scale: 0.65, duration: 0.36, ease: "steps(4)" }, 0.96);
+  tl.to(coin2, { x: 0, y: -140, scale: 0.65, duration: 0.36, ease: "steps(4)" }, 1.02);
+  tl.to(coin3, { x: 85, y: -125, scale: 0.65, duration: 0.36, ease: "steps(4)" }, 1.08);
   tl.set([coin1, coin2, coin3, spendTag], { autoAlpha: 0 }, 1.42);
 
-  tl.call(() => {
-    if (pointsVal) pointsVal.textContent = "0 MONEDAS";
-    if (winTitle) winTitle.textContent = "TICKET QR · SOLICITUD";
-  }, null, 1.18);
+  tl.call(
+    () => {
+      if (pointsVal) pointsVal.textContent = "0 MONEDAS";
+      if (winTitle) winTitle.textContent = "TICKET QR · SOLICITUD";
+    },
+    null,
+    1.18,
+  );
 
   tl.set(viewRequest, { autoAlpha: 0, display: "none" }, 1.22);
   tl.set(viewTicket, { autoAlpha: 1, display: "block" }, 1.22);
 
   // 3. La mano del encargado presiona el botón de validación APROBAR desde la Tablet POS (1.55s -> 2.00s)
-  tl.to(
-    handStaff,
-    { autoAlpha: 1, x: 0, y: 0, duration: 0.24, ease: "steps(4)" },
-    1.55
-  );
+  tl.to(handStaff, { autoAlpha: 1, x: 0, y: 0, duration: 0.24, ease: "steps(4)" }, 1.55);
   tl.to(handStaff, { y: 4, duration: 0.07, ease: "steps(1)" }, 1.84);
   tl.to(
     btnApprove,
@@ -265,7 +241,7 @@ export function createMoment4Timeline(
       duration: 0.07,
       ease: "steps(1)",
     },
-    1.84
+    1.84,
   );
   tl.to(
     btnApprove,
@@ -276,21 +252,13 @@ export function createMoment4Timeline(
       duration: 0.06,
       ease: "steps(1)",
     },
-    1.93
+    1.93,
   );
-  tl.to(
-    handStaff,
-    { autoAlpha: 0, x: 36, y: 32, duration: 0.16, ease: "steps(3)" },
-    1.98
-  );
+  tl.to(handStaff, { autoAlpha: 0, x: 36, y: 32, duration: 0.16, ease: "steps(3)" }, 1.98);
 
   // 4. Pausa de confirmación (0.7 s: 2.00s -> 2.70s) con sello retro CANJE APROBADO y check pixelado
   tl.to(caption, { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1, ease: "steps(1)" }, 2.02);
-  tl.to(
-    stamp,
-    { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.16, ease: "steps(3)" },
-    2.02
-  );
+  tl.to(stamp, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.16, ease: "steps(3)" }, 2.02);
   tl.to(card, { y: 3, duration: 0.04, ease: "steps(1)" }, 2.16);
   tl.to(card, { y: 0, duration: 0.04, ease: "steps(1)" }, 2.2);
 
@@ -306,7 +274,7 @@ export function createMoment4Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    2.7
+    2.7,
   );
   tl.set(scope, { autoAlpha: 1 }, endTime);
 

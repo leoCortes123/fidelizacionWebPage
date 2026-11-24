@@ -73,11 +73,7 @@ export function renderMoment5HTML() {
   `;
 }
 
-export function createMoment5Timeline(
-  rootEl,
-  gsapInstance = window.gsap,
-  timelineOptions = {}
-) {
+export function createMoment5Timeline(rootEl, gsapInstance = window.gsap, timelineOptions = {}) {
   const readingPause =
     typeof timelineOptions.scenePause === "number"
       ? Math.max(0.1, timelineOptions.scenePause)
@@ -109,30 +105,14 @@ export function createMoment5Timeline(
   tl.set(loopBanner, { autoAlpha: 0, y: 16, scale: 0.9 });
 
   // 1. Entrada del texto pixelado y transformación mediante destello en el producto de recompensa (0.00s -> 0.50s)
-  tl.to(
-    caption,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" },
-    0.02
-  );
+  tl.to(caption, { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" }, 0.02);
   tl.to(flash, { autoAlpha: 1, scale: 1.25, duration: 0.09, ease: "steps(2)" }, 0.02);
   tl.to(flash, { autoAlpha: 0, scale: 1.5, duration: 0.14, ease: "steps(2)" }, 0.11);
-  tl.to(
-    lootCard,
-    { autoAlpha: 1, scale: 1, y: 0, duration: 0.34, ease: "steps(4)" },
-    0.1
-  );
+  tl.to(lootCard, { autoAlpha: 1, scale: 1, y: 0, duration: 0.34, ease: "steps(4)" }, 0.1);
 
   // 2. La mano del encargado entrega el producto a la mano del cliente (0.50s -> 1.05s)
-  tl.to(
-    handStaff,
-    { autoAlpha: 1, x: 14, y: 0, duration: 0.28, ease: "steps(4)" },
-    0.5
-  );
-  tl.to(
-    handCustomer,
-    { autoAlpha: 1, x: -14, y: 0, duration: 0.28, ease: "steps(4)" },
-    0.62
-  );
+  tl.to(handStaff, { autoAlpha: 1, x: 14, y: 0, duration: 0.28, ease: "steps(4)" }, 0.5);
+  tl.to(handCustomer, { autoAlpha: 1, x: -14, y: 0, duration: 0.28, ease: "steps(4)" }, 0.62);
   tl.to(lootCard, { x: -6, duration: 0.12, ease: "steps(2)" }, 0.88);
   tl.to(lootCard, { x: 0, duration: 0.12, ease: "steps(2)" }, 1.0);
 
@@ -148,25 +128,13 @@ export function createMoment5Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    1.05
+    1.05,
   );
 
   // 3. Detrás del producto emerge la moneda principal de Fideliapp girando en 8-bits (1.85s -> 2.35s)
-  tl.to(
-    [handStaff, handCustomer],
-    { autoAlpha: 0, duration: 0.2, ease: "steps(3)" },
-    1.85
-  );
-  tl.to(
-    lootCard,
-    { y: 42, scale: 0.88, duration: 0.28, ease: "steps(4)" },
-    1.88
-  );
-  tl.to(
-    giantCoinStage,
-    { autoAlpha: 1, y: -44, scale: 1, duration: 0.32, ease: "steps(4)" },
-    1.9
-  );
+  tl.to([handStaff, handCustomer], { autoAlpha: 0, duration: 0.2, ease: "steps(3)" }, 1.85);
+  tl.to(lootCard, { y: 42, scale: 0.88, duration: 0.28, ease: "steps(4)" }, 1.88);
+  tl.to(giantCoinStage, { autoAlpha: 1, y: -44, scale: 1, duration: 0.32, ease: "steps(4)" }, 1.9);
   tl.to(
     giantCoin,
     {
@@ -176,13 +144,9 @@ export function createMoment5Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    1.95
+    1.95,
   );
-  tl.to(
-    loopBanner,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.22, ease: "steps(3)" },
-    2.12
-  );
+  tl.to(loopBanner, { autoAlpha: 1, y: 0, scale: 1, duration: 0.22, ease: "steps(3)" }, 2.12);
   tl.to(caption, { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1, ease: "steps(1)" }, 2.12);
 
   // 4. Pausa final configurable: Moneda de Fideliapp centrada junto al producto
@@ -198,7 +162,7 @@ export function createMoment5Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    2.35
+    2.35,
   );
   tl.set(scope, { autoAlpha: 1 }, endTime);
 

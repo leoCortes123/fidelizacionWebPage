@@ -95,9 +95,7 @@ export const MOMENTS_REGISTRY = {
  */
 export function mountSingleMoment(containerEl, momentNumber, options = {}) {
   const target =
-    typeof containerEl === "string"
-      ? document.querySelector(containerEl)
-      : containerEl;
+    typeof containerEl === "string" ? document.querySelector(containerEl) : containerEl;
   if (!target) {
     throw new Error(`Contenedor no encontrado para el momento ${momentNumber}`);
   }
@@ -110,8 +108,7 @@ export function mountSingleMoment(containerEl, momentNumber, options = {}) {
   const gsapInstance = options.gsap || window.gsap;
   const showHud = options.showHud !== false;
   let showCaption = options.showCaption !== false;
-  let currentSpeed =
-    typeof options.speed === "number" && options.speed > 0 ? options.speed : 1;
+  let currentSpeed = typeof options.speed === "number" && options.speed > 0 ? options.speed : 1;
   let currentScenePause =
     typeof options.scenePause === "number"
       ? Math.max(0.1, options.scenePause)
@@ -223,9 +220,7 @@ export function mountSingleMoment(containerEl, momentNumber, options = {}) {
  */
 export function createFideliappAnimation(containerEl, options = {}) {
   const target =
-    typeof containerEl === "string"
-      ? document.querySelector(containerEl)
-      : containerEl;
+    typeof containerEl === "string" ? document.querySelector(containerEl) : containerEl;
   if (!target) {
     throw new Error("No se encontró el contenedor para createFideliappAnimation.");
   }
@@ -237,12 +232,9 @@ export function createFideliappAnimation(containerEl, options = {}) {
   const gsapInstance = options.gsap || window.gsap;
   const showHud = options.showHud !== false;
   let showCaption = options.showCaption !== false;
-  let currentSpeed =
-    typeof options.speed === "number" && options.speed > 0 ? options.speed : 1;
+  let currentSpeed = typeof options.speed === "number" && options.speed > 0 ? options.speed : 1;
   let currentScenePause =
-    typeof options.scenePause === "number"
-      ? Math.max(0.1, options.scenePause)
-      : undefined;
+    typeof options.scenePause === "number" ? Math.max(0.1, options.scenePause) : undefined;
 
   target.innerHTML = `
     <div class="fa-stage fa-stage-full ${showCaption ? "" : "is-caption-hidden"}" data-active-moment="1">
@@ -279,7 +271,7 @@ export function createFideliappAnimation(containerEl, options = {}) {
   const wipeEl = target.querySelector(".fa-transition-wipe");
 
   const momentEls = [1, 2, 3, 4, 5].map((num) =>
-    target.querySelector(`.fa-moment[data-moment="${num}"]`)
+    target.querySelector(`.fa-moment[data-moment="${num}"]`),
   );
 
   let currentMomentNumber = 1;
@@ -333,7 +325,7 @@ export function createFideliappAnimation(containerEl, options = {}) {
       master.fromTo(
         wipeEl,
         { autoAlpha: 1, scaleY: 0, transformOrigin: "50% 0%" },
-        { scaleY: 1, duration: 0.08, ease: "steps(2)" }
+        { scaleY: 1, duration: 0.08, ease: "steps(2)" },
       );
       master.to(wipeEl, {
         autoAlpha: 0,
@@ -422,8 +414,7 @@ export function createFideliappAnimation(containerEl, options = {}) {
         buildMasterTimeline(currentMomentNumber, true);
       }
     },
-    getScenePause: () =>
-      typeof currentScenePause === "number" ? currentScenePause : 1.2,
+    getScenePause: () => (typeof currentScenePause === "number" ? currentScenePause : 1.2),
     setShowCaption: (visible) => {
       showCaption = Boolean(visible);
       if (stageEl) {
@@ -464,14 +455,14 @@ export function autoMountFideliappAnimations(root = document) {
           ...commonOpts,
           mode: "moment",
           moment: Number(momentAttr || val),
-        })
+        }),
       );
     } else {
       instances.push(
         createFideliappAnimation(el, {
           ...commonOpts,
           mode: "full",
-        })
+        }),
       );
     }
   });

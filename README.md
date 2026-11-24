@@ -12,11 +12,11 @@ La aplicación operativa (login, PWA, paneles de administrador, encargado y clie
 
 Copia `.env.example` a `.env.local` si necesitas sobrescribir las URLs por defecto:
 
-| Variable | Por defecto | Uso |
-|---|---|---|
-| `VITE_BRAND_NAME` | `Fideliapp` | Nombre visible de la marca |
-| `VITE_APP_URL` | `https://fidelizacion01.vercel.app` | URL base de la app (Ingresar, Crear programa, Descargar app) |
-| `VITE_SITE_URL` | `https://fidelapp.pages.dev` | URL pública del sitio (canonical, Open Graph, JSON-LD) |
+| Variable          | Por defecto                         | Uso                                                          |
+| ----------------- | ----------------------------------- | ------------------------------------------------------------ |
+| `VITE_BRAND_NAME` | `Fideliapp`                         | Nombre visible de la marca                                   |
+| `VITE_APP_URL`    | `https://fidelizacion01.vercel.app` | URL base de la app (Ingresar, Crear programa, Descargar app) |
+| `VITE_SITE_URL`   | `https://fidelapp.pages.dev`        | URL pública del sitio (canonical, Open Graph, JSON-LD)       |
 
 ## Comandos
 

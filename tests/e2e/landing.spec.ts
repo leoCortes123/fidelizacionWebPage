@@ -27,7 +27,10 @@ test("el inicio muestra animación 1vh, botones CTA, explorador de roles, marque
   const pricingButton = page
     .locator(".hero .hero-buttons")
     .getByRole("link", { name: /Ver planes y precios/i });
-  await expect(startButton).toHaveAttribute("href", "https://fidelizacion01.vercel.app/admin/onboarding?new=1");
+  await expect(startButton).toHaveAttribute(
+    "href",
+    "https://fidelizacion01.vercel.app/admin/onboarding?new=1",
+  );
   await expect(pricingButton).toHaveAttribute("href", "/precios");
 
   // En escritorio: botón azul al lado derecho del botón verde y colores correctos.

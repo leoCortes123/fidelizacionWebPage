@@ -114,11 +114,7 @@ export function renderMoment2HTML() {
   `;
 }
 
-export function createMoment2Timeline(
-  rootEl,
-  gsapInstance = window.gsap,
-  timelineOptions = {}
-) {
+export function createMoment2Timeline(rootEl, gsapInstance = window.gsap, timelineOptions = {}) {
   const readingPause =
     typeof timelineOptions.scenePause === "number"
       ? Math.max(0.1, timelineOptions.scenePause)
@@ -156,20 +152,20 @@ export function createMoment2Timeline(
   tl.set(heroCoin, { scale: 0.82, scaleX: 1 });
   tl.set(sparkles, { autoAlpha: 0, scale: 0.5 });
   tl.set(plusToast, { autoAlpha: 0, y: 16 });
-  tl.call(() => {
-    if (balanceNum) balanceNum.textContent = "1.850 MONEDAS";
-  }, null, 0);
+  tl.call(
+    () => {
+      if (balanceNum) balanceNum.textContent = "1.850 MONEDAS";
+    },
+    null,
+    0,
+  );
 
   // 1. Entrada del texto pixelado y mano del cliente acercando su teléfono frente al QR (0.00s -> 0.55s)
-  tl.to(
-    caption,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" },
-    0.02
-  );
+  tl.to(caption, { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" }, 0.02);
   tl.to(
     customerUnit,
     { autoAlpha: 1, x: 74, y: 12, scale: 0.95, duration: 0.48, ease: "steps(6)" },
-    0.04
+    0.04,
   );
 
   // 2. Línea láser roja (#e6533f) recorre el QR de arriba abajo (0.55s -> 1.05s)
@@ -177,11 +173,7 @@ export function createMoment2Timeline(
   tl.to(laser, { y: 112, duration: 0.48, ease: "steps(8)" }, 0.56);
 
   // Pausa de confirmación (0.5 s: 1.05s -> 1.55s) con flash retro al detectar el código
-  tl.to(
-    qrFlash,
-    { autoAlpha: 0.9, duration: 0.08, yoyo: true, repeat: 3, ease: "steps(1)" },
-    1.05
-  );
+  tl.to(qrFlash, { autoAlpha: 0.9, duration: 0.08, yoyo: true, repeat: 3, ease: "steps(1)" }, 1.05);
   tl.set(laser, { autoAlpha: 0 }, 1.48);
 
   // 3. Del código QR saltan 3 monedas de Fideliapp con arco parabólico (coin jump)
@@ -196,20 +188,20 @@ export function createMoment2Timeline(
     tl.to(el, { x: 74, duration: 0.36, ease: "steps(6)" }, start);
     tl.to(el, { y: -92, scale: 1.15, duration: 0.18, ease: "steps(3)" }, start);
     tl.to(el, { y: 6, scale: 0.95, duration: 0.18, ease: "steps(3)" }, start + 0.18);
-    tl.to(
-      el,
-      { scaleX: 0.25, duration: 0.09, yoyo: true, repeat: 3, ease: "steps(1)" },
-      start
-    );
+    tl.to(el, { scaleX: 0.25, duration: 0.09, yoyo: true, repeat: 3, ease: "steps(1)" }, start);
     tl.set(el, { autoAlpha: 0 }, start + 0.36);
 
     const hitTime = start + 0.36;
     tl.to(customerPhone, { x: 2, y: -2, duration: 0.03, ease: "steps(1)" }, hitTime);
     tl.to(customerPhone, { x: -2, y: 2, duration: 0.03, ease: "steps(1)" }, hitTime + 0.03);
     tl.to(customerPhone, { x: 0, y: 0, duration: 0.03, ease: "steps(1)" }, hitTime + 0.06);
-    tl.call(() => {
-      if (balanceNum) balanceNum.textContent = saldo;
-    }, null, hitTime);
+    tl.call(
+      () => {
+        if (balanceNum) balanceNum.textContent = saldo;
+      },
+      null,
+      hitTime,
+    );
   });
 
   // Texto flotante +150 MONEDAS que sube por pasos (steps(4))
@@ -218,21 +210,9 @@ export function createMoment2Timeline(
   tl.to(plusToast, { y: -22, duration: 0.42, ease: "steps(4)" }, 1.9);
 
   // 5. Resultado: Smartphone del cliente en primer plano con gran moneda brillando (Pausa configurable)
-  tl.to(
-    staffUnit,
-    { autoAlpha: 0, x: -130, scale: 0.82, duration: 0.24, ease: "steps(4)" },
-    2.32
-  );
-  tl.to(
-    customerHand,
-    { autoAlpha: 0, x: -30, duration: 0.2, ease: "steps(3)" },
-    2.32
-  );
-  tl.to(
-    customerUnit,
-    { x: 0, y: 0, scale: 1.02, duration: 0.26, ease: "steps(4)" },
-    2.34
-  );
+  tl.to(staffUnit, { autoAlpha: 0, x: -130, scale: 0.82, duration: 0.24, ease: "steps(4)" }, 2.32);
+  tl.to(customerHand, { autoAlpha: 0, x: -30, duration: 0.2, ease: "steps(3)" }, 2.32);
+  tl.to(customerUnit, { x: 0, y: 0, scale: 1.02, duration: 0.26, ease: "steps(4)" }, 2.34);
   tl.to(heroCoin, { scale: 1.14, duration: 0.2, ease: "steps(3)" }, 2.4);
   const rawRepeats = Math.max(0, Math.floor((readingPause - 0.35) / 0.2));
   const sparkleRepeats = rawRepeats % 2 === 0 ? rawRepeats : rawRepeats - 1;
@@ -247,7 +227,7 @@ export function createMoment2Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    2.42
+    2.42,
   );
   tl.set(scope, { autoAlpha: 1 }, endTime);
 

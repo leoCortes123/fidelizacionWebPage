@@ -102,11 +102,7 @@ export function renderMoment3HTML() {
   `;
 }
 
-export function createMoment3Timeline(
-  rootEl,
-  gsapInstance = window.gsap,
-  timelineOptions = {}
-) {
+export function createMoment3Timeline(rootEl, gsapInstance = window.gsap, timelineOptions = {}) {
   const readingPause =
     typeof timelineOptions.scenePause === "number"
       ? Math.max(0.1, timelineOptions.scenePause)
@@ -157,30 +153,26 @@ export function createMoment3Timeline(
     scale: 1,
   });
 
-  tl.call(() => {
-    if (pointsVal) pointsVal.textContent = "1.200 / 2.000";
-    if (barPct) barPct.textContent = "60%";
-    if (statusPill) {
-      statusPill.textContent = "LVL 04 · EN PROGRESO";
-      statusPill.style.backgroundColor = "#fad24b";
-    }
-    if (rewardTag) {
-      rewardTag.textContent = "BLOQUEADO";
-      rewardTag.style.color = "#55707d";
-    }
-  }, null, 0);
+  tl.call(
+    () => {
+      if (pointsVal) pointsVal.textContent = "1.200 / 2.000";
+      if (barPct) barPct.textContent = "60%";
+      if (statusPill) {
+        statusPill.textContent = "LVL 04 · EN PROGRESO";
+        statusPill.style.backgroundColor = "#fad24b";
+      }
+      if (rewardTag) {
+        rewardTag.textContent = "BLOQUEADO";
+        rewardTag.style.color = "#55707d";
+      }
+    },
+    null,
+    0,
+  );
 
   // 1. Entrada del texto pixelado y despliegue de la tarjeta Player Card (0.00s -> 0.45s)
-  tl.to(
-    caption,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" },
-    0.02
-  );
-  tl.to(
-    card,
-    { autoAlpha: 1, scale: 1, y: 0, duration: 0.38, ease: "steps(5)" },
-    0.04
-  );
+  tl.to(caption, { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" }, 0.02);
+  tl.to(card, { autoAlpha: 1, scale: 1, y: 0, duration: 0.38, ease: "steps(5)" }, 0.04);
 
   // 2. Las monedas de Fideliapp recién ganadas se absorben hacia la barra de progreso (0.45s -> 0.90s)
   tl.set([coinA, coinB, coinC], { autoAlpha: 1 }, 0.45);
@@ -194,7 +186,7 @@ export function createMoment3Timeline(
       stagger: 0.06,
       ease: "steps(4)",
     },
-    0.46
+    0.46,
   );
   tl.set([coinA, coinB, coinC], { autoAlpha: 0 }, 0.92);
 
@@ -209,16 +201,16 @@ export function createMoment3Timeline(
   blockSteps.forEach(({ idx, time, pct, pts }) => {
     const blockEl = stepBlocks[idx];
     if (blockEl) {
-      tl.to(
-        blockEl,
-        { autoAlpha: 1, scaleY: 1, duration: 0.14, ease: "steps(2)" },
-        time
-      );
+      tl.to(blockEl, { autoAlpha: 1, scaleY: 1, duration: 0.14, ease: "steps(2)" }, time);
     }
-    tl.call(() => {
-      if (barPct) barPct.textContent = pct;
-      if (pointsVal) pointsVal.textContent = pts;
-    }, null, time + 0.08);
+    tl.call(
+      () => {
+        if (barPct) barPct.textContent = pct;
+        if (pointsVal) pointsVal.textContent = pts;
+      },
+      null,
+      time + 0.08,
+    );
   });
 
   // 4. Pausa de hito (0.7 s: 1.75s -> 2.45s) al llegar al 100%
@@ -233,31 +225,27 @@ export function createMoment3Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    1.75
+    1.75,
   );
-  tl.to(
-    unlockBanner,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.16, ease: "steps(3)" },
-    1.76
-  );
+  tl.to(unlockBanner, { autoAlpha: 1, y: 0, scale: 1, duration: 0.16, ease: "steps(3)" }, 1.76);
   tl.to(iconLocked, { autoAlpha: 0, scale: 0.5, duration: 0.1, ease: "steps(2)" }, 1.78);
-  tl.to(
-    iconUnlocked,
-    { autoAlpha: 1, scale: 1, duration: 0.18, ease: "steps(3)" },
-    1.84
-  );
+  tl.to(iconUnlocked, { autoAlpha: 1, scale: 1, duration: 0.18, ease: "steps(3)" }, 1.84);
   tl.to(iconBox, { backgroundColor: "#fad24b", duration: 0.1, ease: "steps(1)" }, 1.84);
 
-  tl.call(() => {
-    if (statusPill) {
-      statusPill.textContent = "¡100% COMPLETADO!";
-      statusPill.style.backgroundColor = "#24d04a";
-    }
-    if (rewardTag) {
-      rewardTag.textContent = "¡LISTO PARA CANJEAR!";
-      rewardTag.style.color = "#155bc0";
-    }
-  }, null, 1.82);
+  tl.call(
+    () => {
+      if (statusPill) {
+        statusPill.textContent = "¡100% COMPLETADO!";
+        statusPill.style.backgroundColor = "#24d04a";
+      }
+      if (rewardTag) {
+        rewardTag.textContent = "¡LISTO PARA CANJEAR!";
+        rewardTag.style.color = "#155bc0";
+      }
+    },
+    null,
+    1.82,
+  );
 
   tl.to(
     btnRedeem,
@@ -269,7 +257,7 @@ export function createMoment3Timeline(
       duration: 0.14,
       ease: "steps(2)",
     },
-    1.88
+    1.88,
   );
   tl.to(btnRedeem, { scale: 1, duration: 0.12, ease: "steps(2)" }, 2.04);
 
@@ -287,7 +275,7 @@ export function createMoment3Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    2.45
+    2.45,
   );
   tl.set(scope, { autoAlpha: 1 }, endTime);
 

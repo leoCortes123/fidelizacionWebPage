@@ -110,11 +110,7 @@ export function renderMoment1HTML() {
   `;
 }
 
-export function createMoment1Timeline(
-  rootEl,
-  gsapInstance = window.gsap,
-  timelineOptions = {}
-) {
+export function createMoment1Timeline(rootEl, gsapInstance = window.gsap, timelineOptions = {}) {
   const readingPause =
     typeof timelineOptions.scenePause === "number"
       ? Math.max(0.1, timelineOptions.scenePause)
@@ -162,62 +158,21 @@ export function createMoment1Timeline(
   tl.set(qrReadyTag, { autoAlpha: 0 });
 
   // 1. Aparece el texto pixelado de la escena, el producto ($15.000) y la mano del cliente realiza el pago (0.00s - 0.65s)
-  tl.to(
-    caption,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" },
-    0.02
-  );
-  tl.to(
-    productCard,
-    { autoAlpha: 1, scale: 1, y: 0, duration: 0.28, ease: "steps(4)" },
-    0.02
-  );
-  tl.fromTo(
-    steams,
-    { y: 0 },
-    { y: -2, duration: 0.4, stagger: 0.08, ease: "steps(2)" },
-    0.1
-  );
-  tl.to(
-    customerPay,
-    { autoAlpha: 1, x: 0, y: 0, duration: 0.34, ease: "steps(5)" },
-    0.22
-  );
+  tl.to(caption, { autoAlpha: 1, y: 0, scale: 1, duration: 0.24, ease: "steps(4)" }, 0.02);
+  tl.to(productCard, { autoAlpha: 1, scale: 1, y: 0, duration: 0.28, ease: "steps(4)" }, 0.02);
+  tl.fromTo(steams, { y: 0 }, { y: -2, duration: 0.4, stagger: 0.08, ease: "steps(2)" }, 0.1);
+  tl.to(customerPay, { autoAlpha: 1, x: 0, y: 0, duration: 0.34, ease: "steps(5)" }, 0.22);
   tl.to(bill, { x: 14, y: -6, duration: 0.16, ease: "steps(3)" }, 0.48);
 
   // 2. Pausa corta (0.6 s: 0.65s -> 1.25s) con destello pixelado e indicador PAGO OK
-  tl.to(
-    flash,
-    { autoAlpha: 1, scale: 1.15, duration: 0.08, ease: "steps(2)" },
-    0.65
-  );
-  tl.to(
-    flash,
-    { autoAlpha: 0, scale: 1.35, duration: 0.12, ease: "steps(2)" },
-    0.73
-  );
-  tl.to(
-    pagoOk,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.14, ease: "steps(3)" },
-    0.66
-  );
-  tl.to(
-    purchaseGroup,
-    { autoAlpha: 0, y: -24, scale: 0.9, duration: 0.2, ease: "steps(3)" },
-    1.25
-  );
+  tl.to(flash, { autoAlpha: 1, scale: 1.15, duration: 0.08, ease: "steps(2)" }, 0.65);
+  tl.to(flash, { autoAlpha: 0, scale: 1.35, duration: 0.12, ease: "steps(2)" }, 0.73);
+  tl.to(pagoOk, { autoAlpha: 1, y: 0, scale: 1, duration: 0.14, ease: "steps(3)" }, 0.66);
+  tl.to(purchaseGroup, { autoAlpha: 0, y: -24, scale: 0.9, duration: 0.2, ease: "steps(3)" }, 1.25);
 
   // 3. Entra la Tablet POS del negocio y la mano del encargado presiona GENERAR QR (1.25s -> 1.85s)
-  tl.to(
-    staffPhoneWrap,
-    { autoAlpha: 1, y: 0, scale: 1, duration: 0.28, ease: "steps(4)" },
-    1.28
-  );
-  tl.to(
-    staffHand,
-    { autoAlpha: 1, x: 0, y: 0, duration: 0.22, ease: "steps(4)" },
-    1.46
-  );
+  tl.to(staffPhoneWrap, { autoAlpha: 1, y: 0, scale: 1, duration: 0.28, ease: "steps(4)" }, 1.28);
+  tl.to(staffHand, { autoAlpha: 1, x: 0, y: 0, duration: 0.22, ease: "steps(4)" }, 1.46);
   tl.to(staffHand, { y: 4, duration: 0.07, ease: "steps(1)" }, 1.68);
   tl.to(
     btnGenerate,
@@ -228,7 +183,7 @@ export function createMoment1Timeline(
       duration: 0.07,
       ease: "steps(1)",
     },
-    1.68
+    1.68,
   );
   tl.to(
     btnGenerate,
@@ -239,13 +194,9 @@ export function createMoment1Timeline(
       duration: 0.08,
       ease: "steps(1)",
     },
-    1.78
+    1.78,
   );
-  tl.to(
-    staffHand,
-    { autoAlpha: 0, x: 36, y: 32, duration: 0.18, ease: "steps(3)" },
-    1.84
-  );
+  tl.to(staffHand, { autoAlpha: 0, x: 36, y: 32, duration: 0.18, ease: "steps(3)" }, 1.84);
 
   // 4. Construcción bloque a bloque del código QR grande y nítido (1.85s -> 2.40s)
   tl.to(caption, { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1, ease: "steps(1)" }, 1.85);
@@ -260,7 +211,7 @@ export function createMoment1Timeline(
       stagger: 0.06,
       ease: "steps(1)",
     },
-    1.86
+    1.86,
   );
 
   // 5. Resultado fijo en el centro con marco arcade parpadeante (Pausa de lectura configurable)
@@ -277,7 +228,7 @@ export function createMoment1Timeline(
       yoyo: true,
       ease: "steps(1)",
     },
-    2.4
+    2.4,
   );
   tl.set(scope, { autoAlpha: 1 }, endTime);
 

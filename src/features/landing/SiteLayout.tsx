@@ -4,12 +4,7 @@ import { DownloadAppLink } from "@/features/landing/DownloadAppLink";
 import { EatersBackground } from "@/features/landing/EatersBackground";
 import { PixelCloseIcon, PixelMenuIcon } from "@/features/landing/PixelIcons";
 import { ThemeToggleButton } from "@/features/landing/ThemeToggleButton";
-import {
-  LOGIN_URL,
-  REGISTER_BUSINESS_URL,
-  REGISTER_CUSTOMER_URL,
-  brandName,
-} from "@/lib/config";
+import { LOGIN_URL, REGISTER_BUSINESS_URL, REGISTER_CUSTOMER_URL, brandName } from "@/lib/config";
 import "./LandingPage.css";
 
 export function Brand({ brand, size = 26 }: { brand: string; size?: number }) {
@@ -59,7 +54,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
-
   return (
     <div className="retro-landing">
       <EatersBackground />
@@ -88,8 +82,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <ThemeToggleButton />
             <DownloadAppLink className="btn btn-download btn-xs nav-download" />
             <a className="btn btn-light btn-xs" href={LOGIN_URL}>
-                Ingresar
-              </a>
+              Ingresar
+            </a>
             <button
               ref={menuBtnRef}
               type="button"

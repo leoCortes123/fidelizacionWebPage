@@ -17,11 +17,7 @@ import {
 import { SiteLayout } from "@/features/landing/SiteLayout";
 import { usePageMeta } from "@/features/landing/usePageMeta";
 import { roleShowcases } from "@/features/landing/webContent";
-import {
-  REGISTER_BUSINESS_URL,
-  REGISTER_CUSTOMER_URL,
-  brandName,
-} from "@/lib/config";
+import { REGISTER_BUSINESS_URL, REGISTER_CUSTOMER_URL, brandName } from "@/lib/config";
 
 const ProcessAnimation = lazy(() => import("@/features/landing/ProcessAnimation"));
 

@@ -462,7 +462,7 @@ export const faqs: Faq[] = [
     category: "Clientes y App",
     question: "¿Mis clientes tienen que descargar una app?",
     answer:
-      "No es obligatorio. Fideliapp funciona desde el navegador del celular y además se puede instalar como app (PWA) desde la misma página, sin pasar por una tienda de aplicaciones.",
+      "No es obligatorio. Fideliapp funciona desde el navegador del celular y además se puede instalar como app (PWA) desde la aplicación web, sin pasar por una tienda de aplicaciones.",
   },
   {
     category: "Precios y Planes",
