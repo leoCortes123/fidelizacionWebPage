@@ -9,7 +9,7 @@
       name="description"
       content="Fideliapp: software de fidelización y programa de puntos para negocios. Registra ventas con QR, tus clientes suman monedas en el celular y canjean recompensas. Sin tarjetas de papel."
     />
-    <link rel="canonical" href="https://fidelapp.pages.dev/" />
+    <link rel="canonical" href="https://fideliapp.pages.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CO" />
     <meta property="og:site_name" content="Fideliapp" />
@@ -21,8 +21,8 @@
       property="og:description"
       content="App de fidelización de clientes para cafeterías, restaurantes y comercios locales: QR por venta, monedas, recompensas y control de presupuesto."
     />
-    <meta property="og:url" content="https://fidelapp.pages.dev/" />
-    <meta property="og:image" content="https://fidelapp.pages.dev/icons/icon-512.png" />
+    <meta property="og:url" content="https://fideliapp.pages.dev/" />
+    <meta property="og:image" content="https://fideliapp.pages.dev/icons/icon-512.png" />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" href="/fideliapp-coin.png" type="image/png" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
@@ -35,26 +35,54 @@
     />
     <title>Fideliapp · Software de fidelización y programa de puntos para negocios</title>
     <!-- Datos estructurados (no ejecutables; compatibles con CSP script-src 'self').
-         FAQPage debe coincidir con `faqs` de src/features/landing/webContent.ts -->
+         FAQPage debe coincidir con `faqs` de src/features/landing/webContent.ts.
+         TODO_LEGAL: confirmar NIT en <noscript> y agregar streetAddress en PostalAddress cuando se confirme el RUT/dirección antes de producción. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
           {
             "@type": "Organization",
-            "@id": "https://fidelapp.pages.dev/#org",
+            "@id": "https://fideliapp.pages.dev/#org",
             "name": "Fideliapp",
-            "url": "https://fidelapp.pages.dev/",
-            "logo": "https://fidelapp.pages.dev/icons/icon-512.png"
+            "legalName": "Leonardo Cortés Prieto",
+            "url": "https://fideliapp.pages.dev/",
+            "logo": "https://fideliapp.pages.dev/icons/icon-512.png",
+            "email": "soporte.fideli@outlook.com",
+            "telephone": "+57-318-176-0717",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bogotá D.C.",
+              "addressCountry": "CO"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "soporte.fideli@outlook.com",
+                "telephone": "+57-318-176-0717",
+                "areaServed": "CO",
+                "availableLanguage": ["es"]
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "privacy",
+                "email": "datos.fideliapp@outlook.com",
+                "telephone": "+57-318-176-0717",
+                "areaServed": "CO",
+                "availableLanguage": ["es"],
+                "url": "https://fideliapp.pages.dev/contacto"
+              }
+            ]
           },
           {
             "@type": "WebSite",
-            "@id": "https://fidelapp.pages.dev/#web",
+            "@id": "https://fideliapp.pages.dev/#web",
             "name": "Fideliapp",
-            "url": "https://fidelapp.pages.dev/",
+            "url": "https://fideliapp.pages.dev/",
             "inLanguage": "es-CO",
             "publisher": {
-              "@id": "https://fidelapp.pages.dev/#org"
+              "@id": "https://fideliapp.pages.dev/#org"
             }
           },
           {
@@ -63,10 +91,10 @@
             "applicationCategory": "BusinessApplication",
             "applicationSubCategory": "Software de fidelización de clientes",
             "operatingSystem": "Android, iOS, Web",
-            "url": "https://fidelapp.pages.dev/",
+            "url": "https://fideliapp.pages.dev/",
             "inLanguage": "es-CO",
             "publisher": {
-              "@id": "https://fidelapp.pages.dev/#org"
+              "@id": "https://fideliapp.pages.dev/#org"
             },
             "description": "App de fidelización de clientes y programa de puntos para negocios locales: QR por venta, monedas, recompensas, campañas, equipo con permisos y control de presupuesto.",
             "featureList": [
@@ -113,7 +141,7 @@
                 "name": "¿Qué diferencia hay entre Level Up · Pro y Modo Arcade · Suite?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Level Up · Pro añade creación de campañas (promociones, bonos y próximamente cumpleaños) y difusiones por los canales permitidos por el usuario. Modo Arcade · Suite sumará próximamente la plataforma de juegos para clientes y la aplicación completa de administración desde comandera hasta facturación."
+                  "text": "Level Up · Pro añade creación de campañas (promociones y bonos) y, próximamente en hoja de ruta, campañas de cumpleaños y difusiones por los canales permitidos por el usuario. Modo Arcade · Suite sumará próximamente la plataforma de juegos para clientes y la aplicación completa de administración desde comandera hasta facturación."
                 }
               },
               {
@@ -176,9 +204,24 @@
       <h1>Fideliapp · Software de fidelización y programa de puntos para negocios</h1>
       <p>
         Fideliapp es una app de fidelización de clientes para cafeterías, restaurantes y comercios
-        locales. Registras cada venta con un QR, tus clientes suman monedas en su celular y las
-        canjean por recompensas que tú defines. Activa JavaScript para usar la aplicación.
+        locales en Colombia. Registras cada venta con un QR, tus clientes suman monedas en su
+        celular y las canjean por recompensas que tú defines. Activa JavaScript para navegar la
+        aplicación.
       </p>
+      <p>
+        Responsable: Leonardo Cortés Prieto (NIT 1023906172-2, Bogotá D.C., Colombia). Soporte:
+        soporte.fideli@outlook.com · Habeas Data y PQR: datos.fideliapp@outlook.com · Tel. 318 176
+        0717.
+      </p>
+      <ul>
+        <li><a href="/privacidad">Política de Privacidad</a></li>
+        <li><a href="/terminos">Términos para Clientes</a></li>
+        <li><a href="/terminos-negocios">Términos para Negocios</a></li>
+        <li><a href="/dpa">Acuerdo de Datos (DPA)</a></li>
+        <li><a href="/cookies">Política de Cookies</a></li>
+        <li><a href="/eliminar-cuenta">Eliminar cuenta</a></li>
+        <li><a href="/contacto">Contacto y PQR</a></li>
+      </ul>
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>

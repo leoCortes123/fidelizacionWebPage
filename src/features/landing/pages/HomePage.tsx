@@ -335,8 +335,8 @@ export function HomePage() {
               </div>
               <h3>Planes y Precios</h3>
               <p>
-                Player 1 · Gratis para 1 local, Level Up · Pro con campañas y difusiones, y Modo
-                Arcade · Suite para administrar todo tu negocio.
+                Player 1 · Gratis para 1 local, Level Up · Pro con campañas y futuras difusiones, y
+                Modo Arcade · Suite (hoja de ruta) para administrar todo tu negocio.
               </p>
               <span className="hub-link">
                 Ir a Precios <PixelArrowRightIcon size={15} tone="blue" />

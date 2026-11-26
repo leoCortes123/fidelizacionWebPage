@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { LEGAL_PATHS, LEGAL_TAX } from "@/config/legal.config";
 import { AnimatedPixelArt } from "@/features/landing/AnimatedPixelArt";
 import {
   PixelArrowRightIcon,
@@ -73,8 +75,8 @@ export function PricingPage() {
         lead={
           <>
             Con <strong>{brand}</strong> empiezas gratis en 1 local con acumulación de puntos y
-            canje de recompensas, escalas a campañas y difusiones, o te preparas para la suite
-            completa con juegos, comandera y facturación.
+            canje de recompensas, escalas a campañas y futuras difusiones, o conoces la hoja de ruta
+            de la suite con juegos, comandera y facturación (próximamente).
           </>
         }
         actions={[
@@ -128,6 +130,7 @@ export function PricingPage() {
         <div className="pricing-grid">
           {pricingPlans.map((plan) => {
             const price = billing === "annual" ? plan.annualMonthlyCop : plan.monthlyCop;
+            const annualTotal = plan.annualMonthlyCop * 12;
             return (
               <article
                 key={plan.id}
@@ -152,8 +155,13 @@ export function PricingPage() {
                 <div className="pricing-price">
                   <strong className="pricing-amount">{formatCop(price)}</strong>
                   <span className="pricing-period">
-                    {price === 0 ? "para siempre · 1 local" : "COP / mes"}
+                    {price === 0 ? "sin costo fijo · 1 local (sujeto a Términos)" : "COP / mes"}
                   </span>
+                  {billing === "annual" && annualTotal > 0 && (
+                    <span className="pricing-annual-total">
+                      Total pago anual: {formatCop(annualTotal)} COP / año
+                    </span>
+                  )}
                 </div>
 
                 <ul className="check-list pricing-list">
@@ -178,10 +186,25 @@ export function PricingPage() {
                 >
                   {plan.ctaLabel} <PixelArrowRightIcon size={16} />
                 </a>
+                {plan.ctaNote && <p className="pricing-cta-note">{plan.ctaNote}</p>}
               </article>
             );
           })}
         </div>
+
+        <aside className="pricing-tax-banner" aria-label="Información tributaria y de planes">
+          <p>
+            <strong>Régimen tributario e información comercial:</strong> {LEGAL_TAX.pricingNote} (
+            {LEGAL_TAX.legalBasis}).
+          </p>
+          <p>
+            El plan gratuito aplica para 1 local sin costo fijo y está sujeto a los{" "}
+            <Link to={LEGAL_PATHS.termsBusiness}>Términos y Condiciones para Negocios</Link>. Los
+            valores de Level Up · Pro y Modo Arcade · Suite son precios de referencia en{" "}
+            {LEGAL_TAX.currency}; actualmente el registro abre acceso inicial en plan gratuito sin
+            cobros automáticos.
+          </p>
+        </aside>
       </section>
 
       {/* COMPARATIVA ENTRE CAPAS */}
@@ -190,8 +213,9 @@ export function PricingPage() {
           <p className="kicker">COMPARATIVA DE CAPAS</p>
           <h2 id="plans-compare-title">¿Qué incluye cada nivel de {brand}?</h2>
           <p>
-            Las funciones etiquetadas como «Próximamente» hacen parte de nuestra hoja de ruta activa
-            y se activarán sin costo adicional dentro de su capa correspondiente.
+            Las funciones etiquetadas como «Próximamente» o «En diseño» hacen parte de nuestra hoja
+            de ruta informativa, aún no están disponibles y no constituyen compromiso de fecha de
+            entrega ni oferta vinculante.
           </p>
         </div>
 
@@ -291,6 +315,16 @@ export function PricingPage() {
               </article>
             ))}
           </div>
+
+          <p className="roadmap-disclaimer">
+            <strong>Aviso de hoja de ruta:</strong> los módulos marcados como «Próximamente» o «En
+            diseño» son informativos, no están activos todavía y su alcance, disponibilidad y
+            condiciones definitivas se publicarán en los{" "}
+            <Link className="legal-inline-link" to={LEGAL_PATHS.termsBusiness}>
+              Términos para Negocios
+            </Link>{" "}
+            al momento de su lanzamiento.
+          </p>
         </div>
       </section>
     </SiteLayout>

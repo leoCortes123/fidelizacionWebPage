@@ -1,15 +1,20 @@
 # Rutas de la aplicación: viven en Vercel.
-/login         https://fidelizacion01.vercel.app/login           302
-/app           https://fidelizacion01.vercel.app/                302
-/auth/*        https://fidelizacion01.vercel.app/auth/:splat     302
-/admin         https://fidelizacion01.vercel.app/admin           302
-/admin/*       https://fidelizacion01.vercel.app/admin/:splat    302
-/customer      https://fidelizacion01.vercel.app/customer        302
-/customer/*    https://fidelizacion01.vercel.app/customer/:splat 302
-/encargado     https://fidelizacion01.vercel.app/encargado       302
-/encargado/*   https://fidelizacion01.vercel.app/encargado/:splat 302
-/business/*    https://fidelizacion01.vercel.app/business/:splat 302
-/perfil        https://fidelizacion01.vercel.app/perfil          302
-/join/*        https://fidelizacion01.vercel.app/join/:splat     302
-/claim/*       https://fidelizacion01.vercel.app/claim/:splat    302
-/scan/*        https://fidelizacion01.vercel.app/scan/:splat     302
+/login         https://fideli-app.vercel.app/login           302
+/app           https://fideli-app.vercel.app/                302
+/auth/*        https://fideli-app.vercel.app/auth/:splat     302
+/admin         https://fideli-app.vercel.app/admin           302
+/admin/*       https://fideli-app.vercel.app/admin/:splat    302
+/customer      https://fideli-app.vercel.app/customer        302
+/customer/*    https://fideli-app.vercel.app/customer/:splat 302
+/encargado     https://fideli-app.vercel.app/encargado       302
+/encargado/*   https://fideli-app.vercel.app/encargado/:splat 302
+/business/*    https://fideli-app.vercel.app/business/:splat 302
+/perfil        https://fideli-app.vercel.app/perfil          302
+/join/*        https://fideli-app.vercel.app/join/:splat     302
+/claim/*       https://fideli-app.vercel.app/claim/:splat    302
+/scan/*        https://fideli-app.vercel.app/scan/:splat     302
+
+# Rutas SPA del sitio comercial y legal (/, /como-funciona, /funciones, /precios, /preguntas,
+# /privacidad, /terminos, /terminos-negocios, /dpa, /cookies, /eliminar-cuenta, /contacto):
+# Cloudflare Pages sirve automáticamente /index.html con HTTP 200 cuando no existe 404.html en dist/.
+# No añadir `/* /index.html 200` aquí porque Cloudflare Pages lo marca como bucle infinito y lo ignora.

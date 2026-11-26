@@ -29,7 +29,7 @@ test("el inicio muestra animación 1vh, botones CTA, explorador de roles, marque
     .getByRole("link", { name: /Ver planes y precios/i });
   await expect(startButton).toHaveAttribute(
     "href",
-    "https://fidelizacion01.vercel.app/admin/onboarding?new=1",
+    "https://fideli-app.vercel.app/admin/onboarding?new=1",
   );
   await expect(pricingButton).toHaveAttribute("href", "/precios");
 

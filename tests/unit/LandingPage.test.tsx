@@ -16,11 +16,13 @@ import {
   INSTALL_APP_URL,
 } from "@/lib/config";
 import { faqs, manualSteps, roleShowcases } from "@/features/landing/webContent";
+import { ThemeProvider, useTheme } from "@/components/theme/ThemeProvider";
 
 describe("Sitio público (mockup multipágina)", () => {
   beforeEach(() => {
     document.documentElement.classList.remove("dark");
     document.documentElement.style.colorScheme = "";
+    localStorage.removeItem("fideliapp:theme");
     localStorage.removeItem("loopoint:theme");
   });
 
@@ -41,7 +43,7 @@ describe("Sitio público (mockup multipágina)", () => {
 
     const startCta = screen.getByRole("link", { name: /Empezar gratis/i });
     expect(startCta).toHaveAttribute("href", REGISTER_BUSINESS_URL);
-    expect(REGISTER_BUSINESS_URL).toBe("https://fidelizacion01.vercel.app/admin/onboarding?new=1");
+    expect(REGISTER_BUSINESS_URL).toBe("https://fideli-app.vercel.app/admin/onboarding?new=1");
     expect(startCta).toHaveClass("btn", "btn-start");
 
     const pricingCta = screen.getByRole("link", { name: /Ver planes y precios/i });
@@ -211,5 +213,28 @@ describe("Sitio público (mockup multipágina)", () => {
     expect(faqPage?.mainEntity?.map((q) => [q.name, q.acceptedAnswer.text])).toEqual(
       faqs.map((f) => [f.question, f.answer]),
     );
+  });
+
+  it("migra la clave heredada de tema a fideliapp:theme una sola vez y la elimina", () => {
+    localStorage.setItem("loopoint:theme", "dark");
+
+    function Probe() {
+      const { theme } = useTheme();
+      return <span data-testid="theme-val">{theme}</span>;
+    }
+
+    render(
+      <ThemeProvider>
+        <Probe />
+      </ThemeProvider>,
+    );
+
+    expect(screen.getByTestId("theme-val")).toHaveTextContent("dark");
+    expect(localStorage.getItem("fideliapp:theme")).toBe("dark");
+    expect(localStorage.getItem("loopoint:theme")).toBeNull();
+
+    const scriptContent = readFileSync(resolve(__dirname, "../../public/theme-init.js"), "utf8");
+    expect(scriptContent).toContain('"fideliapp:theme"');
+    expect(scriptContent).toContain("localStorage.removeItem");
   });
 });

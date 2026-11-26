@@ -204,8 +204,8 @@ export const featureSpotlights: FeatureSpotlight[] = [
   {
     id: "campanas-difusion",
     tag: "Campañas y difusión",
-    title: "Promociones dinámicas y mensajes a tus clientes",
-    lead: "Activa multiplicadores o bonos en minutos y mantén activos a tus clientes con difusiones segmentadas.",
+    title: "Promociones dinámicas y futuras difusiones a tus clientes",
+    lead: "Activa multiplicadores o bonos en minutos hoy, y prepara difusiones segmentadas y campañas de cumpleaños en nuestra hoja de ruta.",
     bullets: [
       "Multiplicador 2x o bonos por compra mínima con fecha de inicio y fin.",
       "Vencimiento FIFO de monedas: al canjear se consumen primero las más antiguas.",
@@ -256,6 +256,7 @@ export interface PricingPlan {
   monthlyCop: number;
   annualMonthlyCop: number;
   ctaLabel: string;
+  ctaNote?: string;
   ctaTo: string;
   highlighted?: boolean;
   image: string;
@@ -272,6 +273,7 @@ export const pricingPlans: PricingPlan[] = [
     monthlyCop: 0,
     annualMonthlyCop: 0,
     ctaLabel: "Empezar gratis",
+    ctaNote: "Plan gratuito sin tarjeta de crédito ni cobros automáticos.",
     ctaTo: "/admin/onboarding?new=1",
     image: "/art/qr-scan.jpg",
     imageAlt: "Ilustración pixel art de QR de venta y monedas",
@@ -287,10 +289,11 @@ export const pricingPlans: PricingPlan[] = [
     id: "pro",
     name: "Level Up · Pro",
     badge: "Más popular",
-    tagline: "Impulsa la recompra con campañas, difusiones y control financiero.",
+    tagline: "Impulsa la recompra con campañas, control financiero y futuras difusiones.",
     monthlyCop: 59000,
     annualMonthlyCop: 49000,
-    ctaLabel: "Elegir Level Up",
+    ctaLabel: "Empezar en acceso inicial",
+    ctaNote: "Acceso inicial en plan gratuito: aún no realizamos cobros por suscripción.",
     ctaTo: "/admin/onboarding?new=1",
     highlighted: true,
     image: "/art/campaigns-gifts.jpg",
@@ -310,10 +313,12 @@ export const pricingPlans: PricingPlan[] = [
     id: "suite",
     name: "Modo Arcade · Suite",
     badge: "Negocio completo",
-    tagline: "Fidelización gamificada + operación completa desde comandera hasta facturación.",
+    tagline:
+      "Hoja de ruta integral: fidelización gamificada, comandera y facturación (próximamente).",
     monthlyCop: 129000,
     annualMonthlyCop: 109000,
-    ctaLabel: "Solicitar acceso anticipado",
+    ctaLabel: "Unirme en acceso inicial",
+    ctaNote: "Acceso inicial en plan gratuito; los módulos de Suite están en hoja de ruta.",
     ctaTo: "/admin/onboarding?new=1",
     image: "/art/arcade-suite.jpg",
     imageAlt: "Ilustración pixel art de plataforma de juegos, comandera y facturación",
@@ -456,7 +461,7 @@ export const faqs: Faq[] = [
     category: "Precios y Planes",
     question: "¿Qué diferencia hay entre Level Up · Pro y Modo Arcade · Suite?",
     answer:
-      "Level Up · Pro añade creación de campañas (promociones, bonos y próximamente cumpleaños) y difusiones por los canales permitidos por el usuario. Modo Arcade · Suite sumará próximamente la plataforma de juegos para clientes y la aplicación completa de administración desde comandera hasta facturación.",
+      "Level Up · Pro añade creación de campañas (promociones y bonos) y, próximamente en hoja de ruta, campañas de cumpleaños y difusiones por los canales permitidos por el usuario. Modo Arcade · Suite sumará próximamente la plataforma de juegos para clientes y la aplicación completa de administración desde comandera hasta facturación.",
   },
   {
     category: "Clientes y App",

@@ -4,8 +4,10 @@ import { DownloadAppLink } from "@/features/landing/DownloadAppLink";
 import { EatersBackground } from "@/features/landing/EatersBackground";
 import { PixelCloseIcon, PixelMenuIcon } from "@/features/landing/PixelIcons";
 import { ThemeToggleButton } from "@/features/landing/ThemeToggleButton";
+import { LEGAL_CONTACT, LEGAL_OWNER, LEGAL_PATHS } from "@/config/legal.config";
 import { LOGIN_URL, REGISTER_BUSINESS_URL, REGISTER_CUSTOMER_URL, brandName } from "@/lib/config";
 import "./LandingPage.css";
+import "@/features/legal/LegalPage.css";
 
 export function Brand({ brand, size = 26 }: { brand: string; size?: number }) {
   return (
@@ -138,12 +140,23 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main id="contenido">{children}</main>
 
       <footer className="retro-footer">
-        <div className="wrap footer-grid">
+        <div className="wrap footer-grid footer-grid-legal">
           <div className="footer-brand-col">
             <Brand brand={brand} size={26} />
             <p className="footer-desc">
               Software de fidelización y programa de puntos con QR para negocios locales en
               Colombia.
+            </p>
+            <div className="footer-owner-meta">
+              <span>
+                Titular: <strong>{LEGAL_OWNER.fullName}</strong> · NIT {LEGAL_OWNER.nit}
+              </span>
+              <span>{LEGAL_OWNER.domicile}</span>
+              <span>{LEGAL_CONTACT.businessHours}</span>
+            </div>
+            <p className="footer-cookie-note">
+              Solo usamos almacenamiento local necesario y funcional (sin cookies publicitarias).{" "}
+              <Link to={LEGAL_PATHS.cookies}>Ver política de cookies</Link>.
             </p>
           </div>
 
@@ -161,10 +174,37 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <a href={REGISTER_BUSINESS_URL}>Registrar negocio</a>
             <a href={LOGIN_URL}>Iniciar sesión</a>
             <a href={REGISTER_CUSTOMER_URL}>Crear cuenta de cliente</a>
+            <Link to={LEGAL_PATHS.contact}>Contacto y PQR</Link>
+          </nav>
+
+          <nav className="footer-col" aria-label="Documentos legales y privacidad">
+            <h2 className="footer-heading">Legal</h2>
+            <Link to={LEGAL_PATHS.privacyPolicy}>Política de privacidad</Link>
+            <Link to={LEGAL_PATHS.termsCustomer}>Términos para clientes</Link>
+            <Link to={LEGAL_PATHS.termsBusiness}>Términos para negocios</Link>
+            <Link to={LEGAL_PATHS.dpa}>Acuerdo de datos (DPA)</Link>
+            <Link to={LEGAL_PATHS.cookies}>Política de cookies</Link>
+            <Link to={LEGAL_PATHS.accountDeletion}>Eliminar mi cuenta</Link>
+            <a href={LEGAL_CONTACT.authority.url} target="_blank" rel="noopener noreferrer">
+              {LEGAL_CONTACT.authority.name}
+            </a>
           </nav>
         </div>
         <div className="wrap footer-bottom">
-          <span>© 2026 {brand.toUpperCase()} · SOFTWARE DE FIDELIZACIÓN DE CLIENTES</span>
+          <div className="footer-bottom-inner">
+            <span>
+              © 2026 {brand.toUpperCase()} · {LEGAL_OWNER.fullName} · {LEGAL_OWNER.domicile}
+            </span>
+            <span className="footer-bottom-links">
+              <a href={`mailto:${LEGAL_CONTACT.privacyEmail}`}>
+                Habeas Data / PQR: {LEGAL_CONTACT.privacyEmail}
+              </a>
+              <a href={`mailto:${LEGAL_CONTACT.supportEmail}`}>
+                Soporte: {LEGAL_CONTACT.supportEmail}
+              </a>
+              <a href={LEGAL_CONTACT.phoneHref}>Tel. {LEGAL_CONTACT.phone}</a>
+            </span>
+          </div>
         </div>
       </footer>
 

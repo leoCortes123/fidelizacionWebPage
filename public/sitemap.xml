@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fidelapp.pages.dev/</loc>
-    <lastmod>2026-11-21</lastmod>
+    <loc>https://fideliapp.pages.dev/</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://fidelapp.pages.dev/como-funciona</loc>
-    <lastmod>2026-11-21</lastmod>
+    <loc>https://fideliapp.pages.dev/como-funciona</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fidelapp.pages.dev/funciones</loc>
-    <lastmod>2026-11-21</lastmod>
+    <loc>https://fideliapp.pages.dev/funciones</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fidelapp.pages.dev/precios</loc>
-    <lastmod>2026-11-21</lastmod>
+    <loc>https://fideliapp.pages.dev/precios</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fidelapp.pages.dev/preguntas</loc>
-    <lastmod>2026-11-21</lastmod>
+    <loc>https://fideliapp.pages.dev/preguntas</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/privacidad</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/terminos</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/terminos-negocios</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/dpa</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/cookies</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/eliminar-cuenta</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fideliapp.pages.dev/contacto</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

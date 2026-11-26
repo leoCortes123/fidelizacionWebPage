@@ -9,13 +9,10 @@ function safeHttpUrl(raw: string | undefined, fallback: string): string {
 export const brandName = import.meta.env.VITE_BRAND_NAME?.trim() || "Fideliapp";
 
 /** App web (login, paneles, PWA) alojada en Vercel. */
-export const APP_URL = safeHttpUrl(
-  import.meta.env.VITE_APP_URL,
-  "https://fidelizacion01.vercel.app",
-);
+export const APP_URL = safeHttpUrl(import.meta.env.VITE_APP_URL, "https://fideli-app.vercel.app");
 
 /** URL pública de este sitio comercial (canonical, Open Graph, sitemap). */
-export const SITE_URL = safeHttpUrl(import.meta.env.VITE_SITE_URL, "https://fidelapp.pages.dev");
+export const SITE_URL = safeHttpUrl(import.meta.env.VITE_SITE_URL, "https://fideliapp.pages.dev");
 
 /** Construye un enlace absoluto hacia la app. */
 export const appUrl = (path: string) => `${APP_URL}${path.startsWith("/") ? path : `/${path}`}`;

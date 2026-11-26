@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { LEGAL_PATHS } from "@/config/legal.config";
 import { AnimatedPixelArt } from "@/features/landing/AnimatedPixelArt";
 import {
   PixelArrowRightIcon,
@@ -107,8 +108,8 @@ export function FeaturesPage() {
             <p className="kicker">HOJA DE RUTA · FUNCIONES PROPUESTAS</p>
             <h2 id="roadmap-title">Próximas características en integración</h2>
             <p>
-              Las capacidades marcadas como «Próximamente» completan las capas Crecimiento y Suite
-              Total sin interrumpir tu operación actual.
+              Las capacidades marcadas como «Próximamente» o «En diseño» forman parte de nuestra
+              hoja de ruta informativa para las capas Level Up · Pro y Modo Arcade · Suite.
             </p>
           </div>
 
@@ -126,6 +127,16 @@ export function FeaturesPage() {
               </article>
             ))}
           </div>
+
+          <p className="roadmap-disclaimer">
+            <strong>Aviso de hoja de ruta:</strong> las funciones etiquetadas como «Próximamente» o
+            «En diseño» son informativas, aún no se encuentran activas y no constituyen compromiso
+            de fecha de entrega. Consulta los{" "}
+            <Link className="legal-inline-link" to={LEGAL_PATHS.termsBusiness}>
+              Términos para Negocios
+            </Link>
+            .
+          </p>
 
           <div className="center-cta center-cta-group">
             <Link className="btn btn-primary btn-lg" to="/precios">

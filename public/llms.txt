@@ -1,15 +1,24 @@
 # Fideliapp
 
-> Fideliapp es un software de fidelización de clientes para negocios locales en Colombia. Permite crear un programa de puntos con código QR: el encargado registra cada venta, el cliente suma monedas en su celular (sin mezclar saldos entre negocios) y las canjea por recompensas definidas por el negocio. Funciona en celular, tablet o PC como PWA instalable, sin hardware adicional. Importes en pesos colombianos (COP) y zona horaria America/Bogota.
+> Fideliapp es un software de fidelización de clientes para negocios locales en Colombia. Permite crear un programa de puntos con código QR: el encargado registra cada venta, el cliente suma monedas en su celular (sin mezclar saldos entre negocios) y las canjea por recompensas definidas por el negocio. Funciona en celular, tablet o PC como PWA instalable, sin hardware adicional. Importes en pesos colombianos (COP, prestador persona natural no responsable de IVA) y zona horaria America/Bogota.
 
 ## Páginas públicas del sitio
-- [Inicio](https://fidelapp.pages.dev/): resumen del producto, animación interactiva del ciclo de 5 pasos, explorador por rol (Administrador, Encargado, Cliente) y descarga PWA.
-- [Cómo funciona](https://fidelapp.pages.dev/como-funciona): manual operativo de 5 pasos (Venta, Escaneo, Progreso, Canje, Fidelización) y puesta en marcha en 3 pasos.
-- [Funciones y Roadmap](https://fidelapp.pages.dev/funciones): módulos visuales de operación QR, campañas, economía/auditoría y próximas funciones.
-- [Planes y Precios](https://fidelapp.pages.dev/precios): Player 1 · Gratis (1 local, acumular puntos y redimir recompensas), Level Up · Pro (campañas, cumpleaños próximamente y difusiones por canales permitidos próximamente) y Modo Arcade · Suite (plataforma de juegos para clientes, comandera, facturación y chatbot IA próximamente).
-- [Preguntas frecuentes](https://fidelapp.pages.dev/preguntas): respuestas directas con buscador y filtros por categoría.
+- [Inicio](https://fideliapp.pages.dev/): resumen del producto, animación interactiva del ciclo de 5 pasos, explorador por rol (Administrador, Encargado, Cliente) y descarga PWA.
+- [Cómo funciona](https://fideliapp.pages.dev/como-funciona): manual operativo de 5 pasos (Venta, Escaneo, Progreso, Canje, Fidelización) y puesta en marcha en 3 pasos.
+- [Funciones y Roadmap](https://fideliapp.pages.dev/funciones): módulos visuales de operación QR, campañas, economía/auditoría y hoja de ruta informativa.
+- [Planes y Precios](https://fideliapp.pages.dev/precios): Player 1 · Gratis (sin costo fijo para 1 local, sujeto a Términos), Level Up · Pro y Modo Arcade · Suite (precios finales en COP sin IVA; funciones marcadas como Próximamente pertenecen a la hoja de ruta informativa).
+- [Preguntas frecuentes](https://fideliapp.pages.dev/preguntas): respuestas directas con buscador y filtros por categoría.
+
+## Páginas legales, privacidad y PQR
+- [Política de Privacidad y Habeas Data](https://fideliapp.pages.dev/privacidad): Ley 1581 de 2012, identificación del responsable, roles Responsable/Encargado, inventario de datos, transferencia internacional (Supabase, Vercel, Cloudflare, Google) y derechos del titular.
+- [Términos y Condiciones — Clientes (B2C)](https://fideliapp.pages.dev/terminos): requisito 18+, naturaleza jurídica de las monedas (sin valor monetario), deslinde frente a comercios y uso de QR.
+- [Términos y Condiciones — Negocios (B2B)](https://fideliapp.pages.dev/terminos-negocios): licencia SaaS, planes en COP sin IVA, obligaciones bajo Ley 1480/1581, facturación DIAN a cargo del comercio y descargo sobre el panel económico.
+- [Acuerdo de Transmisión de Datos (DPA)](https://fideliapp.pages.dev/dpa): contrato Art. 25 Decreto 1377 de 2013 entre Comercio (Responsable) y Fideliapp (Encargado), subencargados y seguridad.
+- [Política de Cookies y Almacenamiento Local](https://fideliapp.pages.dev/cookies): inventario técnico real de localStorage, sessionStorage y caché PWA (sin cookies publicitarias ni rastreo de terceros).
+- [Eliminación de Cuenta y Datos](https://fideliapp.pages.dev/eliminar-cuenta): instrucciones para eliminar la cuenta desde la app o por correo sin iniciar sesión, borrado inmediato y anonimización contable.
+- [Contacto y PQR](https://fideliapp.pages.dev/contacto): canales oficiales (`datos.fideliapp@outlook.com`, `soporte.fideli@outlook.com`, tel. 318 176 0717), plazos legales (10 días hábiles consultas / 15 días hábiles reclamos) y enlace a la SIC.
 
 ## Accesos a la aplicación
-- [Registrar un negocio](https://fidelizacion01.vercel.app/admin/onboarding?new=1)
-- [Iniciar sesión](https://fidelizacion01.vercel.app/login)
-- [Crear cuenta de cliente](https://fidelizacion01.vercel.app/login?mode=register)
+- [Registrar un negocio](https://fideli-app.vercel.app/admin/onboarding?new=1)
+- [Iniciar sesión](https://fideli-app.vercel.app/login)
+- [Crear cuenta de cliente](https://fideli-app.vercel.app/login?mode=register)
